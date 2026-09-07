@@ -1,0 +1,10 @@
+.venv/
+models/*
+!models/README.md
+__pycache__/
+*.egg-info/
+.DS_Store
+results/*.json
+.pytest_cache/
+build/
+results/

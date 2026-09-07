@@ -1,0 +1,33 @@
+[build-system]
+requires = ["setuptools>=77"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "flashprefillv2-mlx"
+version = "0.1.0"
+description = "FlashPrefill V2 block-sparse prefill attention for MLX"
+readme = "README.md"
+requires-python = ">=3.12"
+license = "MIT"
+license-files = ["LICENSE"]
+dependencies = [
+  "huggingface_hub",
+  "mlx>=0.32,<0.33",
+  "mlx-lm>=0.31,<0.32",
+]
+
+[project.optional-dependencies]
+test = ["pytest>=8"]
+
+[project.scripts]
+fpv2-download = "fpv2.download:main"
+fpv2-generate = "fpv2.generate:main"
+
+[tool.setuptools.package-data]
+fpv2 = ["metal/**/*.h", "metal/steel/README.md"]
+
+[tool.setuptools.packages.find]
+include = ["fpv2*"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
